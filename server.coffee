@@ -35,11 +35,11 @@ server = http.createServer (req, res) ->
     .w100,body,div{
       width: 100% }
     h1,.h1,.h1-sub *{
-      font-size: 250px }
+      font-size: 96px }
     h2,.h2,.h2-sub *{
-      font-size: 100px }
+      font-size: 64px }
     h3,.h3,.h3-sub *{
-      font-size: 40px }
+      font-size: 36px }
     p{
       font-size: 14px;
       letter-spacing: .5px }
@@ -65,7 +65,7 @@ server = http.createServer (req, res) ->
       background: #FFF;
       margin-right: -.094em;
       margin-bottom: -.2em;
-      border-radius: .05em;
+      border-radius: .1em;
       z-index: 3;
     }
     .logo .eq2{
