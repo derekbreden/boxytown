@@ -9,14 +9,30 @@ server = http.createServer (req, res) ->
 <head>
   <style>
     *{
+      box-sizing: border-box;
       display: inline-block;
       margin: 0; padding: 0;
+      color: #FFF
     }
     head,script,style{ display: none}
+    body{
+      background: #222;
+    }
+    .p1{
+      padding: 20px 40px;
+    }
+    .c{
+      text-align: center;
+    }
+    .w100,body{
+      width: 100%;
+    }
   </style>
 </head>
 <body>
-  <h1>Hello World</h1>
+  <div class="p1 c w100">
+    <h1>Hello World</h1>
+  </div>
 </body>
 
 """
