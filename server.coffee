@@ -13,7 +13,7 @@ server = http.createServer (req, res) ->
       box-sizing: border-box;
       display: inline-block;
       margin: 0; padding: 0;
-      font-family: Helvetica;
+      font-family: Arial;
       font-weight: normal;
       font-size: 0 }
     head,script,style{
@@ -28,11 +28,18 @@ server = http.createServer (req, res) ->
     .b1{
       color: #222;
       background: #FFF }
+    .w80{
+      width: 80% }
+    .w20{
+      width: 20% }
     .w100,body,div{
       width: 100% }
-    h1,.h1{
-      font-size: 400px;
-      letter-spacing: 1px }
+    h1,.h1,.h1-sub *{
+      font-size: 250px }
+    h2,.h2,.h2-sub *{
+      font-size: 100px }
+    h3,.h3,.h3-sub *{
+      font-size: 40px }
     p{
       font-size: 14px;
       letter-spacing: .5px }
@@ -56,26 +63,74 @@ server = http.createServer (req, res) ->
       width: .03em;
       height: .5em;
       background: #FFF;
-      margin-right: -.095em;
+      margin-right: -.094em;
       margin-bottom: -.2em;
       border-radius: .05em;
       z-index: 3;
     }
     .logo .eq2{
-      margin-left: .13em;
+      margin-left: .128em;
       z-index: 1;
     }
   </style>
 </head>
 <body>
-  <div class="p1 c">
-    <span class="logo">
-      <div class="eq1 h1"></div>
-      <div class="eq2 h1"></div>
-      <div class="circle h1"></div>
-      <div class="slice h1"></div>
-    </span>
-    <h1>iqual</h1>
+  <div class="p1">
+    <div class="w80 c">
+      <span class="logo h3-sub">
+        <div class="eq1"></div>
+        <div class="eq2"></div>
+        <div class="circle"></div>
+        <div class="slice"></div>
+      </span>
+      <h3>iqual</h3>
+    </div>
+    <div class="w20 c">
+      <span class="logo h3-sub">
+        <div class="eq1"></div>
+        <div class="eq2"></div>
+        <div class="circle"></div>
+        <div class="slice"></div>
+      </span>
+    </div>
+  </div>
+  <div class="p1">
+    <div class="w80 c">
+      <span class="logo h2-sub">
+        <div class="eq1"></div>
+        <div class="eq2"></div>
+        <div class="circle"></div>
+        <div class="slice"></div>
+      </span>
+      <h2>iqual</h2>
+    </div>
+    <div class="w20 c">
+      <span class="logo h2-sub">
+        <div class="eq1"></div>
+        <div class="eq2"></div>
+        <div class="circle"></div>
+        <div class="slice"></div>
+      </span>
+    </div>
+  </div>
+  <div class="p1">
+    <div class="w80 c">
+      <span class="logo h1-sub">
+        <div class="eq1"></div>
+        <div class="eq2"></div>
+        <div class="circle"></div>
+        <div class="slice"></div>
+      </span>
+      <h1>iqual</h1>
+    </div>
+    <div class="w20 c">
+      <span class="logo h1-sub">
+        <div class="eq1"></div>
+        <div class="eq2"></div>
+        <div class="circle"></div>
+        <div class="slice"></div>
+      </span>
+    </div>
   </div>
 </body>
 
