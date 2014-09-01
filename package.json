@@ -1,0 +1,12 @@
+{
+  "main": "server.coffee",
+  "name": "piqual",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "dependencies": {
+    "coffee-script": "^1.8.0",
+    "nodemon": "^1.2.1"
+  }
+}
