@@ -19,12 +19,12 @@ server = http.createServer (req, res) ->
     head,script,style{
       display: none }
     body{
-      color: #a1a4a5;
-      background: #e8eff1 }
+      color: #4d8b97;
+      background: #fff }
     .p1{
       margin: 20px 0;
       padding: 20px 40px;
-      background: #fff; }
+      background: #e8eff1; }
     .c{
       text-align: center }
     .w80{
@@ -45,12 +45,12 @@ server = http.createServer (req, res) ->
     .logo .circle{
       width: .48em; height: .53em;
       border-radius: .48em/.53em;
-      background: #4d8b97;
+      background: #bf4436;
     }
     .logo .slice{
       width: .3em;
       height: .057em;
-      background: #fff;
+      background: #e8eff1;
       margin-left: -.5em;
       margin-right: .25em;
       transform: rotate(325deg);
@@ -61,7 +61,7 @@ server = http.createServer (req, res) ->
     .logo .eq1,.logo .eq2{
       width: .03em;
       height: .5em;
-      background: #4d8b97;
+      background: #bf4436;
       margin-right: -.094em;
       margin-bottom: -.2em;
       z-index: 3;
@@ -69,6 +69,15 @@ server = http.createServer (req, res) ->
     .logo .eq2{
       margin-left: .128em;
       z-index: 1;
+    }
+    .b2{
+      background: #18798a;
+      color: #FFF;
+    }
+    p{
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 1px;
     }
   </style>
 </head>
@@ -110,6 +119,11 @@ server = http.createServer (req, res) ->
         <div class="slice"></div>
       </span>
     </div>
+  </div>
+  <div class="p1 b2 c">
+    <p>
+      Church-key McSweeney's food truck salvia vegan Portland drinking vinegar hashtag Odd Future, small batch fap roof party Blue Bottle before they sold out. Trust fund flannel dreamcatcher yr Austin beard, farm-to-table DIY four loko. Artisan meh put a bird on it, semiotics pork belly pop-up VHS Carles occupy hoodie lomo shabby chic American Apparel dreamcatcher viral. Bicycle rights pug Marfa yr, cardigan Truffaut selfies Etsy roof party direct trade polaroid tofu swag. Sartorial Truffaut drinking vinegar, butcher crucifix DIY Pinterest Carles ugh forage. McSweeney's kitsch craft beer you probably haven't heard of them. Locavore pickled biodiesel McSweeney's fanny pack.
+    </p>
   </div>
   <div class="p1">
     <div class="w80 c">
