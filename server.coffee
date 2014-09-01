@@ -19,15 +19,14 @@ server = http.createServer (req, res) ->
     head,script,style{
       display: none }
     body{
-      color: #FFF;
-      background: #222 }
+      color: #41414a;
+      background: #787990 }
     .p1{
-      padding: 20px 40px }
+      margin: 20px 0;
+      padding: 20px 40px;
+      background: #f8f3db; }
     .c{
       text-align: center }
-    .b1{
-      color: #222;
-      background: #FFF }
     .w80{
       width: 80% }
     .w20{
@@ -46,26 +45,25 @@ server = http.createServer (req, res) ->
     .logo .circle{
       width: .48em; height: .53em;
       border-radius: .48em/.53em;
-      background: #FFF;
+      background: #c86125;
     }
     .logo .slice{
       width: .3em;
       height: .057em;
-      background: #222;
+      background: #f8f3db;
       margin-left: -.5em;
       margin-right: .25em;
       transform: rotate(325deg);
-      border-radius: .05em;
+      border-radius: .1em;
       margin-bottom: .14em;
       z-index: 2;
     }
     .logo .eq1,.logo .eq2{
       width: .03em;
       height: .5em;
-      background: #FFF;
+      background: #c86125;
       margin-right: -.094em;
       margin-bottom: -.2em;
-      border-radius: .1em;
       z-index: 3;
     }
     .logo .eq2{
