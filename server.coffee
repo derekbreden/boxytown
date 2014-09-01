@@ -12,7 +12,10 @@ server = http.createServer (req, res) ->
       box-sizing: border-box;
       display: inline-block;
       margin: 0; padding: 0;
-      color: #FFF
+      color: #FFF;
+      font-family: Helvetica;
+      font-weight: normal;
+      font-size: 14px;
     }
     head,script,style{ display: none}
     body{
@@ -27,11 +30,15 @@ server = http.createServer (req, res) ->
     .w100,body{
       width: 100%;
     }
+    h1{
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
   </style>
 </head>
 <body>
   <div class="p1 c w100">
-    <h1>Hello World</h1>
+    <h1>piqual</h1>
   </div>
 </body>
 
