@@ -24,7 +24,7 @@ server = http.createServer (req, res) ->
     .p1{
       margin-bottom: 40px;
       padding: 20px 40px;
-      border-top: 1px solid #231f20}
+      border-top: 1px solid #231f20 }
     .c{
       text-align: center }
     .w80{
@@ -45,8 +45,7 @@ server = http.createServer (req, res) ->
     .logo .circle{
       width: .48em; height: .53em;
       border-radius: .48em/.53em;
-      background: #231f20;
-    }
+      background: #231f20 }
     .logo .slice{
       width: .3em;
       height: .057em;
@@ -56,35 +55,28 @@ server = http.createServer (req, res) ->
       transform: rotate(325deg);
       border-radius: .1em;
       margin-bottom: .14em;
-      z-index: 2;
-    }
+      z-index: 2 }
     .logo .eq1,.logo .eq2{
       width: .03em;
       height: .5em;
       background: #231f20;
       margin-right: -.094em;
       margin-bottom: -.2em;
-      z-index: 3;
-    }
+      z-index: 3 }
     .logo .eq2{
       margin-left: .128em;
-      z-index: 1;
-    }
+      z-index: 1 }
     .b2,.b2 .logo .slice{
       background: #231f20;
-      color: #fff;
-    }
+      color: #fff }
     .b2 .logo .eq1,.b2 .logo .eq2,.b2 .logo .circle{
-      background: #FFF
-    }
+      background: #FFF }
     p{
       font-size: 16px;
       line-height: 24px;
-      letter-spacing: 1px;
-    }
+      letter-spacing: 1px }
     .r{
-      text-align: right
-    }
+      text-align: right }
   </style>
 </head>
 <body>
