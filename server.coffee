@@ -22,7 +22,7 @@ server = http.createServer (req, res) ->
       color: #231f20;
       background: #fff }
     .p1{
-      margin: 20px 0;
+      margin-bottom: 40px;
       padding: 20px 40px;
       border-top: 1px solid #231f20}
     .c{
@@ -70,20 +70,26 @@ server = http.createServer (req, res) ->
       margin-left: .128em;
       z-index: 1;
     }
-    .b2{
+    .b2,.b2 .logo .slice{
       background: #231f20;
       color: #fff;
+    }
+    .b2 .logo .eq1,.b2 .logo .eq2,.b2 .logo .circle{
+      background: #FFF
     }
     p{
       font-size: 16px;
       line-height: 24px;
       letter-spacing: 1px;
     }
+    .r{
+      text-align: right
+    }
   </style>
 </head>
 <body>
-  <div class="p1">
-    <div class="w80 c">
+  <div class="p1 b2">
+    <div class="w80">
       <span class="logo h3-sub">
         <div class="eq1"></div>
         <div class="eq2"></div>
@@ -92,7 +98,7 @@ server = http.createServer (req, res) ->
       </span>
       <h3>iqual</h3>
     </div>
-    <div class="w20 c">
+    <div class="w20 r">
       <span class="logo h3-sub">
         <div class="eq1"></div>
         <div class="eq2"></div>
@@ -102,31 +108,17 @@ server = http.createServer (req, res) ->
     </div>
   </div>
   <div class="p1">
-    <div class="w80 c">
-      <span class="logo h2-sub">
-        <div class="eq1"></div>
-        <div class="eq2"></div>
-        <div class="circle"></div>
-        <div class="slice"></div>
-      </span>
-      <h2>iqual</h2>
-    </div>
-    <div class="w20 c">
-      <span class="logo h2-sub">
-        <div class="eq1"></div>
-        <div class="eq2"></div>
-        <div class="circle"></div>
-        <div class="slice"></div>
-      </span>
-    </div>
+    <p class="w80">
+      Church-key McSweeney's food truck salvia vegan Portland drinking vinegar hashtag Odd Future, small batch fap roof party Blue Bottle before they sold out. Trust fund flannel dreamcatcher yr Austin beard, farm-to-table DIY four loko. Artisan meh put a bird on it, semiotics pork belly pop-up VHS Carles occupy hoodie lomo shabby chic American Apparel dreamcatcher viral.
+    </p>
   </div>
-  <div class="p1 b2 c">
-    <p>
-      Church-key McSweeney's food truck salvia vegan Portland drinking vinegar hashtag Odd Future, small batch fap roof party Blue Bottle before they sold out. Trust fund flannel dreamcatcher yr Austin beard, farm-to-table DIY four loko. Artisan meh put a bird on it, semiotics pork belly pop-up VHS Carles occupy hoodie lomo shabby chic American Apparel dreamcatcher viral. Bicycle rights pug Marfa yr, cardigan Truffaut selfies Etsy roof party direct trade polaroid tofu swag. Sartorial Truffaut drinking vinegar, butcher crucifix DIY Pinterest Carles ugh forage. McSweeney's kitsch craft beer you probably haven't heard of them. Locavore pickled biodiesel McSweeney's fanny pack.
+  <div class="p1 b2 r">
+    <p class="w80">
+      Church-key McSweeney's food truck salvia vegan Portland drinking vinegar hashtag Odd Future, small batch fap roof party Blue Bottle before they sold out. Trust fund flannel dreamcatcher yr Austin beard, farm-to-table DIY four loko. Artisan meh put a bird on it, semiotics pork belly pop-up VHS Carles occupy hoodie lomo shabby chic American Apparel dreamcatcher viral.
     </p>
   </div>
   <div class="p1">
-    <div class="w80 c">
+    <div class="w80">
       <span class="logo h1-sub">
         <div class="eq1"></div>
         <div class="eq2"></div>
@@ -135,7 +127,7 @@ server = http.createServer (req, res) ->
       </span>
       <h1>iqual</h1>
     </div>
-    <div class="w20 c">
+    <div class="w20 r">
       <span class="logo h1-sub">
         <div class="eq1"></div>
         <div class="eq2"></div>
