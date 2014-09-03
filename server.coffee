@@ -18,8 +18,9 @@ server = http.createServer (req, res) ->
       font-size: 0 }
     head,script,style{
       display: none }
+    body,a{
+      color: #231f20 }
     body{
-      color: #231f20;
       background: #fff }
     .p1{
       margin-bottom: 40px;
@@ -67,10 +68,10 @@ server = http.createServer (req, res) ->
     .logo .eq2{
       margin-left: .128em;
       z-index: 1 }
-    .b2,.b2 .logo .slice{
+    .b1,.b1 .logo .slice,.b1 a{
       background: #231f20;
       color: #fff }
-    .b2 .logo .eq1,.b2 .logo .eq2,.b2 .logo .circle{
+    .b1 .logo .eq1,.b1 .logo .eq2,.b1 .logo .circle{
       background: #FFF }
     p{
       font-size: 16px;
@@ -81,53 +82,26 @@ server = http.createServer (req, res) ->
   </style>
 </head>
 <body>
-  <div class="p1 b2">
-    <div class="w80">
-      <span class="logo h3-sub">
-        <div class="eq1"></div>
-        <div class="eq2"></div>
-        <div class="circle"></div>
-        <div class="slice"></div>
-      </span>
-      <h3>iqual</h3>
-    </div>
-    <div class="w20 r">
-      <span class="logo h3-sub">
-        <div class="eq1"></div>
-        <div class="eq2"></div>
-        <div class="circle"></div>
-        <div class="slice"></div>
-      </span>
-    </div>
+  <div class="p1 b1">
+    <a href="/">
+    <span class="logo h3-sub">
+      <div class="eq1"></div>
+      <div class="eq2"></div>
+      <div class="circle"></div>
+      <div class="slice"></div>
+    </span>
+    <h3>iqual</h3>
+    </a>
   </div>
   <div class="p1">
-    <p class="w80">
-      Church-key McSweeney's food truck salvia vegan Portland drinking vinegar hashtag Odd Future, small batch fap roof party Blue Bottle before they sold out. Trust fund flannel dreamcatcher yr Austin beard, farm-to-table DIY four loko. Artisan meh put a bird on it, semiotics pork belly pop-up VHS Carles occupy hoodie lomo shabby chic American Apparel dreamcatcher viral.
+    <p>
+      picture equalizer
     </p>
   </div>
-  <div class="p1 b2 r">
-    <p class="w80">
-      Church-key McSweeney's food truck salvia vegan Portland drinking vinegar hashtag Odd Future, small batch fap roof party Blue Bottle before they sold out. Trust fund flannel dreamcatcher yr Austin beard, farm-to-table DIY four loko. Artisan meh put a bird on it, semiotics pork belly pop-up VHS Carles occupy hoodie lomo shabby chic American Apparel dreamcatcher viral.
+  <div class="p1 b1">
+    <p>
+      picture equalizer
     </p>
-  </div>
-  <div class="p1">
-    <div class="w80">
-      <span class="logo h1-sub">
-        <div class="eq1"></div>
-        <div class="eq2"></div>
-        <div class="circle"></div>
-        <div class="slice"></div>
-      </span>
-      <h1>iqual</h1>
-    </div>
-    <div class="w20 r">
-      <span class="logo h1-sub">
-        <div class="eq1"></div>
-        <div class="eq2"></div>
-        <div class="circle"></div>
-        <div class="slice"></div>
-      </span>
-    </div>
   </div>
 </body>
 
