@@ -1,7 +1,7 @@
-# piqual
+# picurial
 
 ```
-  git clone https://github.com/proksoup/piqual
+  git clone https://github.com/derekbreden/picurial
   npm install
   npm start
 ```
