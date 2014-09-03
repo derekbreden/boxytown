@@ -35,10 +35,6 @@ server = http.createServer (req, res) ->
     .w100,body,div{
       width: 100% }
     h1,.h1,.h1-sub *{
-      font-size: 96px }
-    h2,.h2,.h2-sub *{
-      font-size: 64px }
-    h3,.h3,.h3-sub *{
       font-size: 36px }
     p{
       font-size: 14px;
@@ -84,13 +80,13 @@ server = http.createServer (req, res) ->
 <body>
   <div class="p1 b1">
     <a href="/">
-    <span class="logo h3-sub">
+    <span class="logo h1-sub">
       <div class="eq1"></div>
       <div class="eq2"></div>
       <div class="circle"></div>
       <div class="slice"></div>
     </span>
-    <h3>iqual</h3>
+    <h1>iqual</h1>
     </a>
   </div>
   <div class="p1">
