@@ -53,6 +53,7 @@ server = http.createServer (req, res) ->
       margin-left: -.5em;
       margin-right: .25em;
       transform: rotate(325deg);
+      -webkit-transform: rotate(325deg);
       border-radius: .1em;
       margin-bottom: .14em;
       z-index: 2 }
