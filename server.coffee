@@ -21,9 +21,8 @@ server = http.createServer (req, res) ->
     body,a{
       color: #231f20 }
     body{
-      background: #fff }
+      background: #faf3f7 }
     .p1{
-      margin-bottom: 40px;
       padding: 20px 40px;
       border-top: 1px solid #231f20 }
     .c{
@@ -64,6 +63,9 @@ server = http.createServer (req, res) ->
     .logo .eq2{
       margin-left: .128em;
       z-index: 1 }
+    .b0{
+      background: #FFF
+    }
     .b1,.b1 .logo .slice,.b1 a{
       background: #231f20;
       color: #fff }
@@ -75,29 +77,33 @@ server = http.createServer (req, res) ->
       letter-spacing: 1px }
     .r{
       text-align: right }
+    .m1{
+      min-height: 200px }
   </style>
 </head>
 <body>
-  <div class="p1 b1">
-    <a href="/">
-    <span class="logo h1-sub">
-      <div class="eq1"></div>
-      <div class="eq2"></div>
-      <div class="circle"></div>
-      <div class="slice"></div>
-    </span>
-    <h1>iqual</h1>
-    </a>
-  </div>
-  <div class="p1">
-    <p>
-      picture equalizer
-    </p>
-  </div>
-  <div class="p1 b1">
-    <p>
-      picture equalizer
-    </p>
+  <div class="b0">
+    <div class="p1 b1">
+      <a href="/">
+      <span class="logo h1-sub">
+        <div class="eq1"></div>
+        <div class="eq2"></div>
+        <div class="circle"></div>
+        <div class="slice"></div>
+      </span>
+      <h1>icurial</h1>
+      </a>
+    </div>
+    <div class="p1 m1">
+      <p>
+        Those curated pics though.
+      </p>
+    </div>
+    <div class="p1 b1">
+      <p>
+        Curate up some pics.
+      </p>
+    </div>
   </div>
 </body>
 
