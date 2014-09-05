@@ -1,6 +1,16 @@
 http = require("http")
 
 server = http.createServer (req, res) ->
+
+  if req.url is '/u'
+    cp = require 'child_process'
+    ps = cp.spawn 'git', ['pull'],
+      cwd: __dirname
+    ps.stdout.on 'data', (data) ->
+      console.log 'OUT', data.toString()
+    ps.stderr.on 'data', (data) ->
+      console.log 'ERR', data.toString()
+
   res.writeHead 200,
     "Content-Type": "text/html"
 
