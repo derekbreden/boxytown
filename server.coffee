@@ -23,7 +23,7 @@ server = http.createServer (req, res) ->
       box-sizing: border-box;
       display: inline-block;
       margin: 0; padding: 0;
-      font-family: PT Sans, Open Sans;
+      font-family: PT Sans, Open Sans, Arial;
       font-weight: normal;
       font-size: 0 }
     head,script,style{
