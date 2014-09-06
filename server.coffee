@@ -23,7 +23,7 @@ server = http.createServer (req, res) ->
       box-sizing: border-box;
       display: inline-block;
       margin: 0; padding: 0;
-      font-family: PT Sans, Open Sans, Arial;
+      font-family: Verdana;
       font-weight: normal;
       font-size: 0 }
     head,script,style{
@@ -31,10 +31,7 @@ server = http.createServer (req, res) ->
     body,a{
       color: #231f20 }
     body{
-      background: #faf3f7 }
-    .p1{
-      padding: 20px 40px;
-      border-top: 1px solid #231f20 }
+      background: #231f20 }
     .c{
       text-align: center }
     .w80{
@@ -43,36 +40,42 @@ server = http.createServer (req, res) ->
       width: 20% }
     .w100,body,div{
       width: 100% }
-    h1,.h1,.h1-sub *{
-      font-size: 36px }
-    p{
-      font-size: 14px;
-      letter-spacing: .5px }
+    h1{
+      font-size: 30px }
+
+
+
+    .logo{
+      padding-bottom: 12px;
+    }
     .logo .circle{
-      width: .48em; height: .53em;
-      border-radius: .48em/.53em;
+      width: 21px; height: 21px;
+      border-radius: 21px;
       background: #231f20 }
     .logo .slice{
-      width: .3em;
-      height: .057em;
+      width: 12px;
+      height: 4px;
       background: #fff;
-      margin-left: -.5em;
-      margin-right: .25em;
+      margin-left: -20px;
+      margin-right: 10px;
       transform: rotate(325deg);
       -webkit-transform: rotate(325deg);
-      border-radius: .1em;
-      margin-bottom: .14em;
+      border-radius: 3px 0 4px 0px;
+      margin-bottom: 5px;
       z-index: 2 }
     .logo .eq1,.logo .eq2{
-      width: .03em;
-      height: .5em;
+      width: 2px;
+      height: 20px;
       background: #231f20;
-      margin-right: -.094em;
-      margin-bottom: -.2em;
+      margin-right: -6px;
+      margin-bottom: -8px;
       z-index: 3 }
     .logo .eq2{
-      margin-left: .128em;
+      margin-left: 8px;
       z-index: 1 }
+
+
+
     .b0{
       background: #FFF
     }
@@ -84,18 +87,21 @@ server = http.createServer (req, res) ->
     p{
       font-size: 16px;
       line-height: 24px;
-      letter-spacing: 1px }
+      letter-spacing: .5px;}
     .r{
       text-align: right }
     .m1{
-      min-height: 200px }
+      min-height: 300px;
+      padding: 16px 32px }
+    .m0{
+      padding: 8px 32px }
   </style>
 </head>
 <body>
   <div class="b0">
-    <div class="p1 b1">
+    <div class="p1 b1 m0">
       <a href="/">
-      <span class="logo h1-sub">
+      <span class="logo">
         <div class="eq1"></div>
         <div class="eq2"></div>
         <div class="circle"></div>
@@ -107,11 +113,6 @@ server = http.createServer (req, res) ->
     <div class="p1 m1">
       <p>
         Those curated pics though.
-      </p>
-    </div>
-    <div class="p1 b1">
-      <p>
-        Curate up some pics.
       </p>
     </div>
   </div>
