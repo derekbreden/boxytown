@@ -47,6 +47,7 @@ server = http.createServer (req, res) ->
 
     .logo{
       padding-bottom: 12px;
+      padding-left: 1px;
     }
     .logo .circle{
       width: 21px; height: 21px;
