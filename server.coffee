@@ -1,6 +1,18 @@
-http = require("http")
+http = require 'http'
 
 server = http.createServer (req, res) ->
+
+  if req.url is '/favicon.png?v=1.3'
+    path = require 'path'
+    fs = require 'fs'
+    filePath = path.join __dirname, 'favicon.png'
+    stat = fs.statSync filePath
+    res.writeHead 200,
+      'Content-Type': 'image/png'
+      'Content-Length': stat.size
+    readStream = fs.createReadStream filePath
+    readStream.pipe res
+    return
 
   if req.url is '/u'
     cp = require 'child_process'
@@ -17,6 +29,7 @@ server = http.createServer (req, res) ->
   res.end """
 <!doctype html>
 <head>
+  <link rel="shortcut icon" href="/favicon.png?v=1.3">
   <style>
 
     body,a{
