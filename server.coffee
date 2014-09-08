@@ -20,17 +20,20 @@ server = http.createServer (req, res) ->
   <style>
 
     body,a{
-      color: #42535d }
-    .b1,.b1 .logo .slice,.b1 a{
-      color: #42535d }
+      color: #333 }
     body{
-      background: #f2f3f4 }
+      background: #333 }
     .b0{
-      background: #04a6f1 }
+      background: #FFF }
+
+    .b1{
+      border-bottom: 1px solid #333 }
     .b1,.b1 .logo .slice,.b1 a{
-      background: #f2f3f4 }
+      color: #333 }
+    .b1,.b1 .logo .slice,.b1 a{
+      background: #FFF }
     .b1 .logo .eq1,.b1 .logo .eq2,.b1 .logo .circle{
-      background: #42535d }
+      background: #333 }
 
     *{
       position: relative;
