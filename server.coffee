@@ -30,6 +30,7 @@ server = http.createServer (req, res) ->
 <!doctype html>
 <head>
   <link rel="shortcut icon" href="/favicon.png?v=1.3">
+  <title>Picurial - curate dose pics yo</title>
   <style>
 
     body,a{
