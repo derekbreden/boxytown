@@ -30,7 +30,7 @@ server = http.createServer (req, res) ->
 <!doctype html>
 <head>
   <link rel="shortcut icon" href="/favicon.png?v=1.3">
-  <title>Picurial - Smallest Social Network</title>
+  <title>Picurial . the smallest social network</title>
   <style>
 
     body,a{
@@ -109,9 +109,11 @@ server = http.createServer (req, res) ->
       text-align: right }
     .m1{
       min-height: 300px;
-      padding: 16px 32px }
+      padding: 32px }
     .m0{
       padding: 8px 32px }
+    .spacer{
+      padding: 0 0 0 16px }
   </style>
 </head>
 <body>
@@ -125,11 +127,13 @@ server = http.createServer (req, res) ->
         <div class="slice"></div>
       </span>
       <h1>icurial</h1>
+      <span class="spacer"></span>
+      <p>the smallest social network</p>
       </a>
     </div>
     <div class="p1 m1">
       <p>
-        Those curated pics though.
+        Some stuff will go here ...
       </p>
     </div>
   </div>
