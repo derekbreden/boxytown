@@ -18,6 +18,20 @@ server = http.createServer (req, res) ->
 <!doctype html>
 <head>
   <style>
+
+    body,a{
+      color: #42535d }
+    .b1,.b1 .logo .slice,.b1 a{
+      color: #42535d }
+    body{
+      background: #f2f3f4 }
+    .b0{
+      background: #04a6f1 }
+    .b1,.b1 .logo .slice,.b1 a{
+      background: #f2f3f4 }
+    .b1 .logo .eq1,.b1 .logo .eq2,.b1 .logo .circle{
+      background: #42535d }
+
     *{
       position: relative;
       box-sizing: border-box;
@@ -28,10 +42,6 @@ server = http.createServer (req, res) ->
       font-size: 0 }
     head,script,style{
       display: none }
-    body,a{
-      color: #231f20 }
-    body{
-      background: #231f20 }
     .c{
       text-align: center }
     .w80{
@@ -51,12 +61,10 @@ server = http.createServer (req, res) ->
     }
     .logo .circle{
       width: 21px; height: 21px;
-      border-radius: 21px;
-      background: #231f20 }
+      border-radius: 21px }
     .logo .slice{
       width: 12px;
       height: 4px;
-      background: #fff;
       margin-left: -20px;
       margin-right: 10px;
       transform: rotate(325deg);
@@ -67,7 +75,6 @@ server = http.createServer (req, res) ->
     .logo .eq1,.logo .eq2{
       width: 2px;
       height: 20px;
-      background: #231f20;
       margin-right: -6px;
       margin-bottom: -8px;
       z-index: 3 }
@@ -77,14 +84,6 @@ server = http.createServer (req, res) ->
 
 
 
-    .b0{
-      background: #FFF
-    }
-    .b1,.b1 .logo .slice,.b1 a{
-      background: #231f20;
-      color: #fff }
-    .b1 .logo .eq1,.b1 .logo .eq2,.b1 .logo .circle{
-      background: #FFF }
     p{
       font-size: 16px;
       line-height: 24px;
