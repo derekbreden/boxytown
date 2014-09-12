@@ -34,28 +34,35 @@ server = http.createServer (req, res) ->
   <style>
 
     body,a{
-      color: #333 }
-    body{
-      background: #333 }
+      color: #1a1a1a }
     .b0{
-      background: #FFF }
+      background: #FFF}
 
-    .b1{
-      border-bottom: 1px solid #333 }
+    .logo .slice{
+      color: #333 }
+    .logo .slice{
+      background: #FFF }
+    .logo .eq1,
+    .logo .eq2,
+    .logo .circle{
+      background: #1a1a1a }
+    a:hover .logo .eq1,
+    a:hover .logo .eq2,
+    a:hover .logo .circle{
+      background: #357eeb }
+    a:hover{
+      color: #357eeb }
+
     .b1,.b1 .logo .slice,.b1 a{
       color: #FFF }
-    .b1,.b1 .logo .slice,.b1 a{
-      background: #333 }
+    .b1 a:hover{
+      color: #357eeb }
+    body,.b1,.b1 .logo .slice,.b1 a{
+      background: #1a1a1a }
     .b1 .logo .eq1,
     .b1 .logo .eq2,
     .b1 .logo .circle{
       background: #FFF }
-    .b1 a:hover .logo .eq1,
-    .b1 a:hover .logo .eq2,
-    .b1 a:hover .logo .circle{
-      background: #999 }
-    a:hover{
-      color: #999 }
 
     *{
       position: relative;
@@ -80,54 +87,56 @@ server = http.createServer (req, res) ->
     .w100,body,div{
       width: 100% }
     h1{
-      font-size: 30px }
+      font-size: 48px }
+    h2{
+      font-size: 24px }
 
 
 
     .logo{
+      padding-bottom: 24px;
+      padding-left: 2px }
+    .logo.p{
       padding-bottom: 12px;
       padding-left: 1px }
-    .logo.p{
-      padding-bottom: 6px;
-      padding-left: .5px }
     .logo .circle{
-      width: 21px; height: 21px;
-      border-radius: 21px }
+      width: 42px; height: 42px;
+      border-radius: 42px }
     .logo.p .circle{
-      width: 10.5px; height: 10.5px }
+      width: 21px; height: 21px }
     .logo .slice{
+      width: 24px;
+      height: 8px;
+      margin-left: -40px;
+      margin-right: 20px;
+      transform: rotate(325deg);
+      -webkit-transform: rotate(325deg);
+      border-radius: 6px 0 8px 0px;
+      margin-bottom: 10px;
+      z-index: 2 }
+    .logo.p .slice{
       width: 12px;
       height: 4px;
       margin-left: -20px;
       margin-right: 10px;
-      transform: rotate(325deg);
-      -webkit-transform: rotate(325deg);
-      border-radius: 3px 0 4px 0px;
-      margin-bottom: 5px;
-      z-index: 2 }
-    .logo.p .slice{
-      width: 6px;
-      height: 2px;
-      margin-left: -10px;
-      margin-right: 5px;
-      border-radius: 1px 0 2px 0;
-      margin-bottom: 2.5px }
+      border-radius: 2px 0 4px 0;
+      margin-bottom: 5px }
     .logo .eq1,.logo .eq2{
+      width: 4px;
+      height: 40px;
+      margin-right: -12px;
+      margin-bottom: -16px;
+      z-index: 3 }
+    .logo.p .eq1, .logo.p .eq2{
       width: 2px;
       height: 20px;
       margin-right: -6px;
-      margin-bottom: -8px;
-      z-index: 3 }
-    .logo.p .eq1, .logo.p .eq2{
-      width: 1px;
-      height: 10px;
-      margin-right: -3px;
-      margin-bottom: -4px }
+      margin-bottom: -8px }
     .logo .eq2{
-      margin-left: 8px;
+      margin-left: 16px;
       z-index: 1 }
     .logo.p .eq2{
-      margin-left: 4px }
+      margin-left: 8px }
 
 
 
@@ -142,15 +151,17 @@ server = http.createServer (req, res) ->
     .m1{
       min-height: 300px;
       padding: 32px }
-    .m0{
-      padding: 8px 32px }
+    .m0 {
+      padding: 16px 32px }
+    .v0 {
+      vertical-align: top }
     .spacer{
       padding: 0 0 0 16px }
   </style>
 </head>
 <body>
   <div class="b0">
-    <div class="p1 b1 m0">
+    <div class="p1 m0 b0">
       <div class="w60">
         <a href="/">
           <span class="logo">
@@ -160,12 +171,9 @@ server = http.createServer (req, res) ->
             <div class="slice"></div>
           </span>
           <h1>icurial</h1>
-          <p>
-            <span class="spacer"></span>.<span class="spacer"></span>the smallest social network
-          </p>
         </a>
       </div>
-      <div class="w40 r">
+      <div class="w40 r v0">
         <a href="/sign-up">
           <p>sign up</p>
         </a>
@@ -182,35 +190,33 @@ server = http.createServer (req, res) ->
         Some stuff will go here ...
       </p>
     </div>
-      <div class="p1 b1 m0">
-        <div class="w60">
-          <a href="/">
-            <span class="logo p">
-              <div class="eq1"></div>
-              <div class="eq2"></div>
-              <div class="circle"></div>
-              <div class="slice"></div>
-            </span>
-            <p>
-              icurial
-            </p>
-            <p class="p2">
-              <span class="spacer"></span>.<span class="spacer"></span>the smallest social network
-            </p>
-          </a>
-        </div>
-        <div class="w40 r">
-          <a href="/sign-up">
-            <p class="p2">sign up</p>
-          </a>
-          <span class="spacer"></span>
-          <p class="p2">.</p>
-          <span class="spacer"></span>
-          <a href="/log-in">
-            <p class="p2">log in</p>
-          </a>
-        </div>
-      </div>
+  </div>
+  <div class="p1 b1 m0">
+    <div class="w60">
+      <a href="/">
+        <span class="logo p">
+          <div class="eq1"></div>
+          <div class="eq2"></div>
+          <div class="circle"></div>
+          <div class="slice"></div>
+        </span>
+        <h2>icurial</h2>
+        <p class="p2">
+          <span class="spacer"></span>.<span class="spacer"></span>the smallest social network
+        </p>
+      </a>
+    </div>
+    <div class="w40 r">
+      <a href="/sign-up">
+        <p class="p2">sign up</p>
+      </a>
+      <span class="spacer"></span>
+      <p class="p2">.</p>
+      <span class="spacer"></span>
+      <a href="/log-in">
+        <p class="p2">log in</p>
+      </a>
+    </div>
   </div>
 </body>
 
