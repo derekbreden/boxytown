@@ -2,7 +2,7 @@ http = require 'http'
 
 server = http.createServer (req, res) ->
 
-  if req.url is '/favicon.png?v=1.3'
+  if req.url is '/favicon.png?v=1.4'
     path = require 'path'
     fs = require 'fs'
     filePath = path.join __dirname, 'favicon.png'
@@ -29,7 +29,7 @@ server = http.createServer (req, res) ->
   res.end """
 <!doctype html>
 <head>
-  <link rel="shortcut icon" href="/favicon.png?v=1.3">
+  <link rel="shortcut icon" href="/favicon.png?v=1.4">
   <title>Picurial . the smallest social network</title>
   <style>
 
