@@ -221,6 +221,7 @@ server = http.createServer (req, res) ->
 </body>
 
 """
+  console.log "index \x1B[32mserved\x1B[39m"
 
 server.listen 8000
 
