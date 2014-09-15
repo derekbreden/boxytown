@@ -102,7 +102,7 @@ server = http.createServer (req, res) ->
 <body>
   <div class="c">
     <div class="m0">
-      <p>This is placeholder content to help stripe with account verification of the business I am intending to build here.</p>
+      <p>This is placeholder content to help enom/stripe with account verification of the business I am intending to build here.</p>
     </div>
     <img src="img.png" style="max-width:100%">
   </div>
