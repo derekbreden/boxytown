@@ -1,7 +1,7 @@
-# picurial
+# BoxyTown
 
 ```
-  git clone https://github.com/derekbreden/picurial
+  git clone https://github.com/derekbreden/boxytown
   npm install
   npm start
 ```
