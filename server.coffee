@@ -2,28 +2,22 @@ http = require 'http'
 
 server = http.createServer (req, res) ->
 
-  if req.url is '/favicon.png?v=1.5'
-    path = require 'path'
-    fs = require 'fs'
-    filePath = path.join __dirname, 'favicon.png'
-    stat = fs.statSync filePath
-    res.writeHead 200,
-      'Content-Type': 'image/png'
-      'Content-Length': stat.size
-    readStream = fs.createReadStream filePath
-    readStream.pipe res
-    return
-  if req.url is '/img.png'
-    path = require 'path'
-    fs = require 'fs'
-    filePath = path.join __dirname, 'img.png'
-    stat = fs.statSync filePath
-    res.writeHead 200,
-      'Content-Type': 'image/png'
-      'Content-Length': stat.size
-    readStream = fs.createReadStream filePath
-    readStream.pipe res
-    return
+  statics =
+    'favicon.png': 'image/png'
+    'img.png': 'image/png'
+
+  for file, type of statics
+    if req.url.match file
+      path = require 'path'
+      fs = require 'fs'
+      filePath = path.join __dirname, file
+      stat = fs.statSync filePath
+      res.writeHead 200,
+        'Content-Type': type
+        'Content-Length': stat.size
+      readStream = fs.createReadStream filePath
+      readStream.pipe res
+      return
 
   if req.url is '/u'
     cp = require 'child_process'
