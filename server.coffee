@@ -3,8 +3,8 @@ http = require 'http'
 server = http.createServer (req, res) ->
 
   statics =
-    'favicon.png': 'image/png'
-    'img.png': 'image/png'
+    'images/favicon.png': 'image/png'
+    'images/mockup.png': 'image/png'
 
   for file, type of statics
     if req.url.match file
@@ -34,7 +34,7 @@ server = http.createServer (req, res) ->
   res.end """
 <!doctype html>
 <head>
-  <link rel="shortcut icon" href="/favicon.png?v=1.5">
+  <link rel="shortcut icon" href="/images/favicon.png?v=1.5">
   <title>BoxyTown . Professional simple websites</title>
   <style>
 
@@ -97,7 +97,7 @@ server = http.createServer (req, res) ->
 </head>
 <body>
   <div class="c">
-    <img src="img.png" style="max-width:100%">
+    <img src="/images/mockup.png" style="max-width:100%">
   </div>
 </body>
 
