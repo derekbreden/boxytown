@@ -3,7 +3,7 @@ app = express()
 
 app.use express.static __dirname + '/public'
 
-app.get '/u', (req, res) ->
+app.all '/u', (req, res) ->
   cp = require 'child_process'
   ps = cp.spawn 'git', ['pull'],
     cwd: __dirname
