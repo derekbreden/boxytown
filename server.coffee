@@ -3,6 +3,9 @@ app = express()
 
 app.use express.static __dirname + '/public'
 
+app.use '/ace/', express.static __dirname +
+  '/node_modules/ajaxorg/ace/build/src'
+
 app.all '/u', (req, res) ->
   cp = require 'child_process'
   ps = cp.spawn 'git', ['pull'],
