@@ -16,6 +16,31 @@ app.all '/u', (req, res) ->
     console.log 'ERR', data.toString()
   res.redirect '/'
 
+app.get '/editor/:whom', (req, res) ->
+  res.setHeader 'Content-Type', 'text/html'
+  res.write """
+  <!doctype html>
+  <head>
+    <style type="text/css">
+      body{margin:0;padding:0;}
+      #ace-container{
+        height: 400px;
+        width: 100% }
+    </style>
+  </head>
+  <body>
+    <div id="ace-container"></div>
+    <script src="/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+      var editor = ace.edit("ace-container")
+      editor.setTheme("ace/theme/monokai")
+      editor.getSession().setMode("ace/mode/html")
+      editor.getSession().setTabSize(2)
+      editor.getSession().setUseSoftTabs(true)
+    </script>
+  </body>
+  """
+
 app.get '/edit/:whom', (req, res) ->
   res.setHeader 'Content-Type', 'text/html'
   res.write """
@@ -35,7 +60,9 @@ app.get '/edit/:whom', (req, res) ->
       </div>
       <hr>
       <div class="m1 c">
-          <div class="ace-container" id="ace-container"></div>
+          <div class="frame-container">
+            <iframe src="/editor/#{req.params.whom}"></iframe>
+          </div>
           <div class="r">
             <input class="i2" type="button" value="cancel" disabled>
             <input class="i2" type="button" value="save" disabled>
