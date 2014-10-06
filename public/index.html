@@ -160,19 +160,24 @@
     var $display1 = document.getElementById('display1')
     $display1.orginalClassName = $display1.className
 
-    var lastTimeout = 0;
-    var searchText = '';
-
-    $input1.addEventListener('keyup',function(e){
-      if (searchText === $input1.value)
-        return true;
-      $display1.innerHTML = 'Searching...'
-      $display1.className = $display1.orginalClassName + ' searching'
-      $input2.setAttribute('disabled', true)
-      searchText = $input1.value
+    var parseSearch = function(searchText){
       searchText = searchText.replace(/^([^:]*:\/\/|)(www|)/i,'')
       searchText = searchText.replace(/\.[^\.]*$/i,'')
       searchText = searchText.replace(/[^a-z0-9]/ig,'')
+      return searchText }
+
+    var lastTimeout = 0
+    var searchText = ''
+
+    $input1.addEventListener('keyup',function(e){
+      if (searchText === parseSearch($input1.value))
+        return true;
+      searchText = parseSearch($input1.value)
+
+      $display1.innerHTML = 'Searching...'
+      $display1.className = $display1.orginalClassName + ' searching'
+      $input2.setAttribute('disabled', true)
+
       var result = function(err){
         clearTimeout(lastTimeout)
         if(err){
@@ -188,12 +193,15 @@
           $display1.className = $display1.orginalClassName + ' available'
         }
       }
+
+      if(searchText===''){
+        result('Choose a name ...')
+        return true }
+
       clearTimeout(lastTimeout)
       lastTimeout = setTimeout(function(){
         result()
       }, 500)
-      if(searchText==='')
-        result('Choose a name ...')
     })
   </script>
 </body>
