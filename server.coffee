@@ -22,7 +22,7 @@ app.get '/edit/:whom', (req, res) ->
   <!doctype html>
   <head>
     <link rel="shortcut icon" href="/images/favicon.png?v=2.0">
-    <title>BoxyTown . Professional simple websites</title>
+    <title>Edit . #{req.params.whom}</title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
