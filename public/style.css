@@ -61,9 +61,11 @@
   .c{
     text-align: center }
   .m1{
-    padding: 48px 0 }
+    padding: 24px 0 }
   .m2{
     padding: 24px  }
+  .m3{
+    padding: 12px  }
   hr{
     border-top: 1px solid #1a1a1a }
 
@@ -93,6 +95,7 @@
 
 
   .i1{
+    margin-top: 20px;
     height: 40px;
     width: 320px;
     border: 1px solid #1a1a1a;
@@ -100,6 +103,7 @@
     vertical-align: top;
     padding: 0 20px }
   .i2{
+    margin-top: 20px;
     margin-left: 20px;
     background: none;
     border: 1px solid #1a1a1a;
@@ -114,14 +118,18 @@
     border-color: #999;
     color: #999 }
 
+  .ace-container,.frame-container{
+    width: 80%;
+  }
+@media(max-width: 1024px){
+  .ace-container,.frame-container{
+    width: 100%
+  }
+}
   .ace-container{
     height: 400px;
-    max-width: 100%;
-    width: 1200px;
     background: #333 }
   .frame-container{
-    max-width: 100%;
-    width: 1200px;
     border: 1px solid #1a1a1a }
   .frame-container iframe{
     border: none;

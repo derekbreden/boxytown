@@ -28,12 +28,19 @@ app.get '/edit/:whom', (req, res) ->
   <body>
     <div>
       <div class="m2">
-        <span class="logo"><span class="a"></span><span class="b"></span><span class="c"></span></span>
+        <a href="/" class="logo">
+          <span class="a"></span><span class="b"></span><span class="c"></span>
+        </a>
         <h1>#{req.params.whom}</h1>
       </div>
       <hr>
       <div class="m1 c">
-        <div class="ace-container" id="ace-container"></div>
+          <div class="ace-container" id="ace-container"></div>
+          <div class="r">
+            <input class="i2" type="button" value="cancel" disabled>
+            <input class="i2" type="button" value="save" disabled>
+            <span class="m3"></span>
+          </div>
       </div>
       <div class="m1 c">
         <div class="frame-container">
