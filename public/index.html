@@ -169,7 +169,7 @@
       $display1.innerHTML = 'Searching...'
       $display1.className = $display1.orginalClassName + ' searching'
       $input2.setAttribute('disabled', true)
-      var searchText = $input1.value
+      searchText = $input1.value
       searchText = searchText.replace(/^([^:]*:\/\/|)(www|)/i,'')
       searchText = searchText.replace(/\.[^\.]*$/i,'')
       searchText = searchText.replace(/[^a-z0-9]/ig,'')
