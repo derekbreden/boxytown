@@ -16,6 +16,37 @@ app.all '/u', (req, res) ->
     console.log 'ERR', data.toString()
   res.redirect '/'
 
+app.get '/edit/:whom', (req, res) ->
+  res.setHeader 'Content-Type', 'text/html'
+  res.write """
+  <!doctype html>
+  <head>
+    <link rel="shortcut icon" href="/images/favicon.png?v=2.0">
+    <title>BoxyTown . Professional simple websites</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div>
+      <div class="m2">
+        <span class="logo"><span class="a"></span><span class="b"></span><span class="c"></span></span>
+        <h1>#{req.params.whom}</h1>
+      </div>
+      <hr>
+      <div class="m1 c">
+        <div class="ace-container" id="ace-container"></div>
+      </div>
+      <div class="m1 c">
+        <div class="frame-container">
+          <iframe id="frame-container"
+            src="http://#{req.params.whom}.boxy.town"></iframe>
+        </div>
+      </div>
+    </div>
+  </body>
+  """
+  res.end()
+
+
 port = process.env.PORT or process.env.HTTP_PORT or 8000
 app.listen port
 console.log "Server running at http://localhost:#{port}"
