@@ -3,9 +3,6 @@ app = express()
 
 app.use express.static __dirname + '/public'
 
-app.use '/ace/', express.static __dirname +
-  '/node_modules/ajaxorg/ace/build/src'
-
 app.all '/u', (req, res) ->
   cp = require 'child_process'
   ps = cp.spawn 'git', ['pull'],
@@ -30,7 +27,7 @@ app.get '/editor/:whom', (req, res) ->
   </head>
   <body>
     <div id="ace-container"></div>
-    <script src="/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/ace.js" type="text/javascript" charset="utf-8"></script>
     <script>
       var editor = ace.edit("ace-container")
       editor.setTheme("ace/theme/monokai")
