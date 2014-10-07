@@ -68,7 +68,7 @@ app.get '/edit/:whom', (req, res) ->
       <div class="m1 c">
         <div class="frame-container">
           <iframe id="frame-container"
-            src="http://#{req.params.whom}.boxy.town"></iframe>
+            src="/preview/#{req.params.whom}"></iframe>
         </div>
       </div>
     </div>
