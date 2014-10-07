@@ -36,6 +36,7 @@ app.get '/editor/:whom', (req, res) ->
     </script>
   </body>
   """
+  res.end()
 
 app.get '/edit/:whom', (req, res) ->
   res.setHeader 'Content-Type', 'text/html'
