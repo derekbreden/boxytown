@@ -1,56 +1,6 @@
-# a is '1'
-# a = '1'
-# a = '1';
-#
-# b is '2'
-# b = '2'
-# b = '2';
-#
-# console-log
-#   a
-#   b
-# console.log a, b
-# console.log(a, b);
-#
-#
-# express is require 'express'
 express = require 'express'
-# express = require('express');
-#
-# app is express null
 app = express()
-# app = express();
-#
-# app-use
-#   express-static
-#     __dirname + '/public'
 app.use express.static __dirname + '/public'
-# app.use(express.static(__dirname + '/public'));
-#
-# app-all
-#   '/u'
-#   function req res
-#     cp is require 'child_process'
-#     ps is cp-spawn
-#       'git'
-#       array
-#         'pull'
-#       object
-#         'cwd'
-#         __dirname
-#     ps-stdout-on
-#       'data'
-#       function data
-#         console-log
-#           'OUT'
-#           data-toString null
-#     ps-stderr-on
-#       'data'
-#       function data
-#         console-log
-#           'ERR'
-#           data-toString null
-#     res-redirect '/'
 
 app.all '/u', (req, res) ->
   cp = require 'child_process'
@@ -61,26 +11,6 @@ app.all '/u', (req, res) ->
   ps.stderr.on 'data', (data) ->
     console.log 'ERR', data.toString()
   res.redirect '/'
-
-# app.all('/u', function(req, res){
-#   var cp = require('child_process');
-#   var ps = cp.spawn('git', ['pull'],
-#     {cwd: __dirname});
-#   ps.stdout.on('data', function(data){
-#     console.log('OUT', data.toString())});
-#   ps.stderr.on('data', function(data){
-#     console.log('OUT', data.toString())});
-#   res.redirect('/');
-# });
-#
-#
-# app-get '/editor/:whom'
-#   function req res
-#     res-setHeader 'Content-Type'
-#       'text/html'
-#     res-write '''
-#
-#     '''
 
 app.get '/editor/:whom', (req, res) ->
   res.setHeader 'Content-Type', 'text/html'
@@ -147,11 +77,6 @@ app.get '/edit/:whom', (req, res) ->
   res.end()
 
 
-# port is process-env-PORT or process-env-HTTP_PORT or 8000
 port = process.env.PORT or process.env.HTTP_PORT or 8000
-#
-# app-listen port
 app.listen port
-# 
-# console-log 'Server running at http://localhost:'port
 console.log "Server running at http://localhost:#{port}"
