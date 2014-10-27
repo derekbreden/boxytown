@@ -1,3 +1,15 @@
+/* RESET */
+*{
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0; padding: 0;
+  font-weight: normal;
+  font-size: 0 }
+head,script,style{
+  display: none }
+
+/* FONT-FACE */
 @font-face {
   font-family: 'quattrocento_sansregular';
   src: url('/fonts/quattrocentosans-regular-webfont.eot');
@@ -19,25 +31,17 @@
   font-weight: normal;
   font-style: normal }
 
-
+/* COLOR */
 body{
+  font-family: quattrocento_sansregular;
   background: #f5f4f0 }
 body,a{
   color: #1a1a1a }
 a:hover{
   color: #357eeb }
-*{
-  position: relative;
-  box-sizing: border-box;
-  display: inline-block;
-  margin: 0; padding: 0;
-  font-family: quattrocento_sansregular;
-  font-weight: normal;
-  font-size: 0 }
-head,script,style{
-  display: none }
 
 
+/* GRID */
 .w80{
   width: 80% }
 .w60{
@@ -48,11 +52,6 @@ head,script,style{
   width: 20% }
 .w100,body,div,hr{
   width: 100% }
-
-
-h1{
-  font-family: quicksandregular;
-  font-size: 72px }
 .left{
   text-align: left }
 .right{
@@ -62,6 +61,12 @@ h1{
 .padding-one{
   padding: 24px 0 }
 
+/* HEADING */
+h1{
+  font-family: quicksandregular;
+  font-size: 72px }
+
+/* A LOGO */
 .boxy-logo{
   margin-left: 14px }
 .boxy-logo .box-a,
