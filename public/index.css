@@ -1,3 +1,14 @@
+/*
+
+  This is one approach to CSS.
+
+  The font-size 0 allows display inline-block to flow cleanly.
+
+  This requires and allows font-size and padding to be used with more precision.
+
+*/
+
+
 /* RESET */
 *{
   position: relative;
@@ -8,6 +19,8 @@
   font-size: 0 }
 head,script,style{
   display: none }
+
+
 
 /* FONT-FACE */
 @font-face {
@@ -31,6 +44,8 @@ head,script,style{
   font-weight: normal;
   font-style: normal }
 
+
+
 /* COLOR */
 body{
   font-family: quattrocento_sansregular;
@@ -39,6 +54,7 @@ body,a{
   color: #1a1a1a }
 a:hover{
   color: #357eeb }
+
 
 
 /* GRID */
@@ -61,10 +77,14 @@ a:hover{
 .padding-one{
   padding: 24px 0 }
 
+
+
 /* HEADING */
 h1{
   font-family: quicksandregular;
   font-size: 72px }
+
+
 
 /* A LOGO */
 .boxy-logo{
