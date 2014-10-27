@@ -1,5 +1,5 @@
 {
-  "main": "server.coffee",
+  "main": "server.js",
   "name": "boxytown",
   "version": "0.0.1",
   "scripts": {
