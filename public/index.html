@@ -10,71 +10,10 @@
       <h1>BoxyTown</h1>
       <span class="logo"><span class="a"></span><span class="b"></span><span class="c"></span></span>
     </div>
-    <div class="c m1">
-      <span class="l">
-        <form id="form1" class="c">
-          <input class="i1" id="input1" type="text" placeholder="yournamehere.com">
-          <input class="i2" id="input2" type="submit" value="edit" disabled>
-        </form>
-        <br>
-        <div id="display1"></div>
-      </span>
-    </div>
   </div>
   <script>
-    var $form1 = document.getElementById('form1')
-    var $input1 = document.getElementById('input1')
-    var $input2 = document.getElementById('input2')
-    var $display1 = document.getElementById('display1')
-    $display1.orginalClassName = $display1.className
+    document.body.addEventListener('keyup',function(e){
 
-    var parseSearch = function(searchText){
-      searchText = searchText.replace(/^([^:]*:\/\/|)(www|)/i,'')
-      searchText = searchText.replace(/\.[^\.]*$/i,'')
-      searchText = searchText.replace(/[^a-z0-9]/ig,'')
-      return searchText }
-
-    var lastTimeout = 0
-    var searchText = ''
-
-    $form1.addEventListener('submit',function(e){
-      e.preventDefault()
-      window.location.href='/edit/' + parseSearch($input1.value)
-    })
-
-    $input1.addEventListener('keyup',function(e){
-      if (searchText === parseSearch($input1.value))
-        return
-      searchText = parseSearch($input1.value)
-
-      $display1.innerHTML = 'Searching...'
-      $display1.className = $display1.orginalClassName + ' searching'
-      $input2.setAttribute('disabled', true)
-
-      var result = function(err){
-        clearTimeout(lastTimeout)
-        if(err){
-          $input2.setAttribute('disabled', true)
-          $display1.innerHTML = err
-          $display1.className = $display1.orginalClassName + ' error'
-        }else{
-          $input2.removeAttribute('disabled')
-          $display1.innerHTML = '<span class="span1">' + searchText + '.com</span>' +
-            '<span class="span2">is available</span>' +
-            '<br><span class="span1">' + searchText + '.boxy.town</span>' +
-              '<span class="span2">is available</span>'
-          $display1.className = $display1.orginalClassName + ' available'
-        }
-      }
-
-      if(searchText===''){
-        result('Choose a name ...')
-        return }
-
-      clearTimeout(lastTimeout)
-      lastTimeout = setTimeout(function(){
-        result()
-      }, 500)
     })
   </script>
 </body>
