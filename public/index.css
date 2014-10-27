@@ -53,102 +53,34 @@ head,script,style{
 h1{
   font-family: quicksandregular;
   font-size: 72px }
-.l{
+.left{
   text-align: left }
-.r{
+.right{
   text-align: right }
-.c{
+.center{
   text-align: center }
-.m1{
+.padding-one{
   padding: 24px 0 }
-.m2{
-  padding: 24px  }
-.m3{
-  padding: 12px  }
-hr{
-  border-top: 1px solid #1a1a1a }
 
-
-h1 + .logo,.logo + h1{
+.boxy-logo{
   margin-left: 14px }
-.logo .a,
-.logo .b,
-.logo .c{
+.boxy-logo .box-a,
+.boxy-logo .box-b,
+.boxy-logo .box-c{
   border: 4px solid #1a1a1a;
   border-radius: 4px;
   background: #f5f4f0 }
-.logo .a{
+.boxy-logo .box-a{
   width: 60px;
   height: 40px;
   z-index: 3;
   position: absolute;
   bottom: -8px }
-.logo .b{
+.boxy-logo .box-b{
   width: 40px;
   height: 64px;
   margin-left: 20px }
-.logo .c{
+.boxy-logo .box-c{
   width: 50px;
   height: 48px;
   margin-left: -20px }
-
-
-.i1{
-  margin-top: 20px;
-  height: 40px;
-  width: 320px;
-  border: 1px solid #1a1a1a;
-  font-size: 24px;
-  vertical-align: top;
-  padding: 0 20px }
-.i2{
-  margin-top: 20px;
-  margin-left: 20px;
-  background: none;
-  border: 1px solid #1a1a1a;
-  height: 40px;
-  width: auto;
-  padding: 0 20px;
-  font-size: 24px;
-  vertical-align: top;
-  cursor: pointer }
-.i2[disabled]{
-  cursor: default;
-  border-color: #999;
-  color: #999 }
-
-.ace-container,.frame-container{
-  width: 80%;
-}
-@media(max-width: 1024px){
-.ace-container,.frame-container{
-  width: 100%
-}
-}
-.ace-container{
-  height: 400px;
-  background: #333 }
-.frame-container{
-  border: 1px solid #1a1a1a }
-.frame-container iframe{
-  border: none;
-  width: 100%;
-  height: 400px }
-
-#display1{o;
-  line-height: 24px;
-  font-size: 16px;
-  text-align: left;
-  width: auto;
-  padding-left: 21px;
-  padding-top: 16px }
-#display1 .span1{
-  color: #000;
-  font-size: 18px }
-#display1 .span2{
-  margin-left: 12px;
-  font-size: 16px }
-#display1.available .span2{
-  color: #1a991a;
-  margin-left: 12px;
-  font-size: 16px }
