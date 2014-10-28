@@ -1,6 +1,6 @@
 {
   "name": "inline-grid.css",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "css grid framework *inline-block",
   "main": "inline-grid.css",
   "scripts": {},
