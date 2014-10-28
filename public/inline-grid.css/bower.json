@@ -1,0 +1,13 @@
+{
+  "name": "inline-grid.css",
+  "version": "0.0.2",
+  "homepage": "https://github.com/derekbreden/inline-grid.css",
+  "authors": [
+    "Derek Bredensteiner <derekbreden@gmail.com>"
+  ],
+  "description": "css grid framework *inline-block",
+  "ignore": [],
+  "main": "inline-grid.css",
+  "keywords": [ "css", "grid", "framework" ],
+  "license": "MIT"
+}
