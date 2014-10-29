@@ -6,6 +6,7 @@
     "start": "nodemon"
   },
   "dependencies": {
+    "body-parser": "^1.9.2",
     "coffee-script": "^1.8.0",
     "compression": "^1.2.0",
     "connect-redis": "^2.1.0",
