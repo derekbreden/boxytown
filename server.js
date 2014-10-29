@@ -10,8 +10,8 @@ app.use(express["static"](__dirname + '/public'))
 app.all('/u', function(req, res){
   var cp = require('child_process')
   var ps = cp.spawn('git', ['pull'], { cwd: __dirname })
-  ps.stdout.on('data', function(data) { return console.log('OUT', data.toString()) })
-  ps.stderr.on('data', function(data) { return console.log('ERR', data.toString()) })
+  ps.stdout.on('data', function(data){ return console.log('OUT', data.toString()) })
+  ps.stderr.on('data', function(data){ return console.log('ERR', data.toString()) })
   return res.send("OK")})
 
 app.get('/new', function(req, res){
@@ -25,12 +25,8 @@ app.get('/new', function(req, res){
 })
 
 app.get('/:which/edit', function(req, res){
-  var w = req.params.which
-  client.get("bean:" + w, function(err, reply){
-    console.log("REPLY", reply)
-    res.sendFile(__dirname + '/public/edit.html')
-  })
-})
+  res.sendFile(__dirname + '/public/edit.html') })
+
 
 var port = process.env.PORT || process.env.HTTP_PORT || 8000
 app.listen(port)
