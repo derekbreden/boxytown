@@ -51,7 +51,7 @@ hr{
 .button-small{
   font-size: 16px;
   line-height: 16px;
-  padding: 4px 24px
+  padding: 4px 16px
 }
 .green-bg{ background: #66cc66; color: #fff }
 .green-bg.button:hover{ background: #66bb66; color: #fff }
