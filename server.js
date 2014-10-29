@@ -14,13 +14,11 @@ app.all('/u', function(req, res){
 
 app.get('/new', function(req, res){
   client.incr("countbeans",function(err,reply){
-    if(!blowup(err,res)){
-      client.get("countbeans",function(err,reply){
-        if(!blowup(err,res)){
-          res.send("GOT! " + generate_url(reply))
-        }
-      })
-    }
+    if(blowup(err,res)){ return }
+    client.get("countbeans",function(err,reply){
+      if(blowup(err,res)){ return }
+      res.send("GOT! " + generate_url(reply))
+    })
   })
 })
 
@@ -37,10 +35,9 @@ var blowup = function(err,res){
 
 
 var generate_url = function(int){
-  var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+  var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_"
   var generated = ""
   while( int > 0){
-    generated = letters[int % letters.length] + generated
-    int = Math.floor(int / letters.length)
-  }
+    generated = chars[int % chars.length] + generated
+    int = Math.floor(int / chars.length) }
   return generated }
