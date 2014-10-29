@@ -4,12 +4,23 @@
   <title>edit25</title>
   <link rel="stylesheet" href="/inline-grid.css/inline-grid.css">
   <link rel="stylesheet" href="/index.css">
+  <style type="text/css">
+    body,html{ height: 100% }
+    .h100{ height: 100% }
+    .ace_editor div{ display: block; }
+    .ace_editor *{ font-size: 12px; }
+  </style>
 </head>
 <body>
-  <div class="center h100">
-    <div class="w50 gray-bg h100">
-    </div>
+  <div class="h100">
+    <div class="w50 gray-bg h100" id="editor"></div>
     <div class="w50 white-bg h100">
     </div>
   </div>
+  <script src="/ace/build/src/ace.js"></script>
+  <script>
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/monokai");
+      editor.getSession().setMode("ace/mode/html");
+  </script>
 </body>

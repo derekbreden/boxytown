@@ -2,7 +2,9 @@ var express = require('express')
 var app = express()
 var redis = require('redis')
 var client = redis.createClient()
+var compress = require('compression')
 
+app.use(compress())
 app.use(express["static"](__dirname + '/public'))
 
 app.all('/u', function(req, res){
