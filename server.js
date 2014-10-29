@@ -17,8 +17,16 @@ app.get('/new', function(req, res){
     if(blowup(err,res)){ return }
     client.get("countbeans",function(err,reply){
       if(blowup(err,res)){ return }
-      res.send("GOT! " + generate_url(reply))
+      res.redirect("/" + generate_url(reply) + "/edit")
     })
+  })
+})
+
+app.get('/:which/edit', function(req, res){
+  var w = req.params.which
+  client.get("bean:" + w, function(err, reply){
+    console.log("REPLY", reply)
+    res.send("GOT ????")
   })
 })
 
