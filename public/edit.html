@@ -15,14 +15,13 @@
 <body>
   <div class="h100 pad-top">
     <div class="w50 gray-bg h100" id="editor"></div>
-    <div class="w50 white-bg h100">
-    </div>
+    <div class="w50 white-bg h100"></div>
   </div>
   <script src="/ace/build/src/ace.js"></script>
   <script>
-      var editor = ace.edit("editor")
-      editor.setTheme("ace/theme/monokai")
-      editor.getSession().setMode("ace/mode/html")
-      editor.getSession().setTabSize(2)
+    var editor = ace.edit("editor")
+    editor.setTheme("ace/theme/monokai")
+    editor.getSession().setMode("ace/mode/html")
+    editor.getSession().setTabSize(2)
   </script>
 </body>
