@@ -26,7 +26,7 @@ app.get('/:which/edit', function(req, res){
   var w = req.params.which
   client.get("bean:" + w, function(err, reply){
     console.log("REPLY", reply)
-    res.send("GOT ????")
+    res.sendFile(__dirname + '/public/edit.html')
   })
 })
 
