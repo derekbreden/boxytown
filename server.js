@@ -14,7 +14,48 @@ app.use(session({
 app.use(compress())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
+
+app.get('/', function(req, res, next){
+  var h = req.host
+  client.get('domain:'+h,function(err, reply){
+    if(blowup(err,res)){ return }
+    if(reply){
+      client.get('contents:'+reply,function(err, reply){
+        if(blowup(err, res)){ return }
+        res.send(reply || "")
+      })
+    }else{
+      next()
+    }
+  })
+})
+
 app.use(express["static"](__dirname + '/public'))
+
+
+var checkForPermission = function(req, res, next){
+  var w = req.params.which
+  client.get('session:'+w, function(err, session_reply){
+    if(blowup(err,res)){ return }
+    client.get('password:'+w, function(err, password_reply){
+      if(blowup(err,res)){ return }
+      if(
+        (session_reply && req.session.sessionId === session_reply)
+        ||
+        (password_reply && req.session.password === password_reply)
+        ||
+        (!session_reply)
+      ){
+        if(!session_reply){
+          client.set("session:"+w,req.session.sessionId,function(){}) }
+        next()
+      }else{
+        res.send("NOT OK")
+      }
+    })
+  })
+}
+
 
 app.all('/u', function(req, res){
   var cp = require('child_process')
@@ -44,31 +85,22 @@ app.get('/:which', function(req, res){
   })
 })
 
-app.post('/:which/save', function(req, res){
+app.post('/:which/save', checkForPermission, function(req, res){
   var w = req.params.which
-  client.get('session:'+w, function(err, session_reply){
+  client.set("contents:" + w, req.body.contents || " ", function(err, reply){
     if(blowup(err,res)){ return }
-    client.get('password:'+w, function(err, password_reply){
-      if(blowup(err,res)){ return }
-      if(
-        (session_reply && req.session.sessionId === session_reply)
-        ||
-        (password_reply && req.session.password === password_reply)
-        ||
-        (!session_reply)
-      ){
-        client.set("contents:" + w, req.body.contents || " ", function(err, reply){
-          if(blowup(err,res)){ return }
-          if(!session_reply){
-            client.set("session:"+w,req.session.sessionId,function(){}) }
-          res.send("OK")
-        })
-      }else{
-        res.send("NOT OK")
-      }
-    })
+    res.send("OK")
   })
 })
+app.post('/:which/save-domain', checkForPermission, function(req, res){
+  var w = req.params.which
+  client.set("domain:" + req.body.domain, w, function(err, reply){
+    if(blowup(err,res)){ return }
+    res.send("OK")
+  })
+})
+
+
 
 var port = process.env.PORT || process.env.HTTP_PORT || 8000
 app.listen(port)

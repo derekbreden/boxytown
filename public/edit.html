@@ -103,7 +103,15 @@
         alert('not yet available')
       })
       $('#domain').click(function(){
-        alert('not yet available')
+        var dmn = prompt('Enter a domain (e.g. foo.com) to be associated with this page ...')
+        $('#loading').show()
+        $.ajax({
+          url: '/' + key + '/save-domain',
+          type: 'POST',
+          data: {
+            domain: dmn
+          }
+        }).always(function(){ $('#loading').hide() })
       })
       $('#full').attr('href', '/'+key)
     })
