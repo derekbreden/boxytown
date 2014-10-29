@@ -4,8 +4,12 @@ var redis = require('redis')
 var client = redis.createClient()
 var compress = require('compression')
 var session = require('express-session')
+var RedisStore = require('connect-redis')(session)
 
-app.use(session({secret: 'keyboard cat'}))
+app.use(session({
+  store: new RedisStore({}),
+  secret: 'keyboard cat'
+}))
 app.use(compress())
 app.use(express["static"](__dirname + '/public'))
 
