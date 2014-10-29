@@ -7,13 +7,32 @@
   <style type="text/css">
     body,html{ height: 100% }
     .h100{ height: 100% }
+    .h32{ height: 32px }
     .ace_editor div{ display: block }
     .ace_editor *{ font-size: 12px }
-    .pad-top{ padding-top: 48px }
+    .pad-top{ padding-top: 32px }
+    .pos-top{ position: absolute; top: 0; left: 0 }
+    .mid-all,.mid-all *{ vertical-align: middle; }
+    .pad-side-small{ padding: 0 4px }
+    @media (max-width: 960px){
+      .pos-top{ position: relative }
+      .pad-top{ padding-top: 0 } }
   </style>
 </head>
 <body>
   <div class="h100 pad-top">
+    <div class="pos-top w100 mid-all">
+      <div class="w50 pad-side-small">
+        <div class="w50 h32">
+          <span class="h32"></span>
+          <div class="button button-small gray-bg">Set Password</div>
+        </div>
+        <div class="w50 h32 right">
+          <span class="h32"></span>
+          <div class="button button-small green-bg">Save</div>
+        </div>
+      </div>
+    </div>
     <div class="w50 gray-bg h100" id="editor"></div>
     <div class="w50 white-bg h100"></div>
   </div>
