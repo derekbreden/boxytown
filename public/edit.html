@@ -4,7 +4,6 @@
   <title>edit25</title>
   <link rel="stylesheet" href="/inline-grid.css/inline-grid.css">
   <link rel="stylesheet" href="/index.css">
-  <meta name="viewport" content="width=960, initial-scale=1">
   <style type="text/css">
     body,html{ height: 100% }
     .h100{ height: 100% }
@@ -28,9 +27,8 @@
       z-index: 99999;
       display: none }
     .hide{ display: none }
-    .welse400px{ padding-left: 40%; width: 100%; }
-    .w400px{ width: 40%; z-index: 99 }
-    .pin-top-right{ position: absolute; top: 0; left: 0; z-index: 97 }
+    .always60{ width: 60%; }
+    .always40{ width: 40%; }
   </style>
 </head>
 <body>
@@ -61,8 +59,8 @@
       </span>
     </div>
     <div class="w100 h100">
-      <div class="w400px gray-bg h100" id="editor"></div>
-      <div class="welse400px h100 pin-top-right">
+      <div class="always40 gray-bg h100" id="editor"></div>
+      <div class="always60 h100">
         <iframe class="h100 w100 white-bg" id="iframe"></iframe>
       </div>
     </div>
