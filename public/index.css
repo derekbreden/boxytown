@@ -56,7 +56,7 @@ hr{
 .green-bg{ background: #66cc66; color: #fff }
 .green-bg.button:hover{ background: #66bb66; color: #fff }
 .green-bg.button:active{ background: #669966 }
-.gray-bg{ background: #ccc }
+.gray-bg{ background: #ccc; color: #444 }
 .gray-bg.button:hover{ background: #bbb; color: #1a1a1a }
 .gray-bg.button:active{ background: #aaa }
 
