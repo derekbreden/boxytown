@@ -33,29 +33,26 @@ app.use(function(req, res, next){
 
 app.get('/', function(req, res, next){
   var h = req.host
-  client.get('domain:'+h,function(err, domain_reply){
-    if(blowup(err,res)){ return }
-    if(domain_reply){
-      client.get('contents:'+domain_reply,function(err, contents_reply){
-        if(blowup(err, res)){ return }
-        res.send(contents_reply || "")
-        if(contents_reply){
-          client.zincrby('views', 1, domain_reply, function(){})
-        }
-      })
-    }else{
-      if(
-        h === 'localhost'
-        ||
-        h.match(/htmelf.com/)
-      ){
-        next()
+
+  if(h.match(/(htmelf.com|localhost)/)){
+    res.sendFile(__dirname + '/public/index.html')
+  }else{
+    client.get('domain:'+h,function(err, domain_reply){
+      if(blowup(err,res)){ return }
+      if(domain_reply){
+        client.get('contents:'+domain_reply,function(err, contents_reply){
+          if(blowup(err, res)){ return }
+          res.send(contents_reply || "")
+          if(contents_reply){
+            client.zincrby('views', 1, domain_reply, function(){})
+          }
+        })
       }else{
         req.session.host_to_edit = h
-        res.redirect('/new')
+        res.redirect('/admin')
       }
-    }
-  })
+    })
+  }
 })
 
 
