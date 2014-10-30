@@ -1,6 +1,6 @@
 {
   "main": "server.js",
-  "name": "boxytown",
+  "name": "htmelf",
   "version": "0.0.1",
   "scripts": {
     "start": "nodemon"
