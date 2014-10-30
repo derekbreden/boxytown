@@ -14,10 +14,6 @@
     .pos-top{ position: absolute; top: 0; left: 0 }
     .mid-all,.mid-all *{ vertical-align: middle; }
     .pad-side-small{ padding: 0 4px }
-    @media (max-width: 960px){
-      .pos-top{ position: relative }
-      .pad-top{ padding-top: 0 }
-      .h100{ height: 300px } }
     .black-bg{ background: #2f3129 }
     .w8{ width: 8px }
     iframe{ border: 0 }
@@ -29,36 +25,34 @@
       z-index: 99999;
       display: none }
     .hide{ display: none }
+    .welse400px{ padding-left: 400px; width: 100%; }
+    .w400px{ width: 400px; }
   </style>
 </head>
 <body>
   <div class="h100 pad-top">
-    <div class="pos-top w100 mid-all black-bg">
-      <div class="w50 pad-side-small h32 right">
-        <span class="h32"></span>
-        <div class="hide unless-owner">
-          <div class="button button-small gray-bg" id="pass">Set Password</div>
+    <div class="pos-top w100 mid-all black-bg pad-side-small h32 right">
+      <a class="button button-small gray-bg" target="_blank" id="full">
+        Open Full Screen</a>
+      <span class="hide unless-owner">
+        <span class="h32 w8"></span>
+        <div class="button button-small gray-bg" id="pass">Set Password</div>
+        <span class="h32 w8"></span>
+        <div class="button button-small gray-bg" id="domain">Set Domain</div>
+        <span class="h32 w8"></span>
+        <div class="button button-small green-bg" id="save">Save</div>
+      </span>
+      <span class="hide unless-locked">
+        <span class="h32 w8"></span>
+        <span class="hide unless-password-set">
+          <div class="button button-small gray-bg" id="unlock">Unlock</div>
           <span class="h32 w8"></span>
-          <div class="button button-small gray-bg" id="domain">Set Domain</div>
-          <span class="h32 w8"></span>
-          <div class="button button-small green-bg" id="save">Save</div>
-        </div>
-        <div class="hide unless-locked">
-          <span class="hide unless-password-set">
-            <div class="button button-small gray-bg" id="unlock">Unlock</div>
-            <span class="h32 w8"></span>
-          </span>
-          <div class="button button-small green-bg" id="fork">Fork</div>
-        </div>
-      </div>
-      <div class="w50 pad-side-small right h32">
-        <span class="h32"></span>
-        <a class="button button-small gray-bg" target="_blank" id="full">
-          Open Full Screen</a>
-      </div>
+        </span>
+        <div class="button button-small green-bg" id="fork">Fork</div>
+      </span>
     </div>
-    <div class="w50 gray-bg h100" id="editor"></div>
-    <div class="w50 white-bg h100">
+    <div class="w400px gray-bg h100" id="editor"></div>
+    <div class="welse400px white-bg h100">
       <iframe class="h100 w100" id="iframe"></iframe>
     </div>
   </div>
