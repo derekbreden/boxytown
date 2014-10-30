@@ -17,14 +17,14 @@ app.use(bodyParser.urlencoded())
 
 app.get('/', function(req, res, next){
   var h = req.host
-  client.get('domain:'+h,function(err, reply){
+  client.get('domain:'+h,function(err, domain_reply){
     if(blowup(err,res)){ return }
-    if(reply){
-      client.get('contents:'+reply,function(err, reply){
+    if(domain_reply){
+      client.get('contents:'+domain_reply,function(err, contents_reply){
         if(blowup(err, res)){ return }
-        res.send(reply || "")
-        if(reply){
-          client.zincrby('views', 1, w, function(){})
+        res.send(contents_reply || "")
+        if(contents_reply){
+          client.zincrby('views', 1, domain_reply, function(){})
         }
       })
     }else{
