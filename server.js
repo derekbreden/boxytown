@@ -130,7 +130,18 @@ app.get('/new', function(req, res){
     if(blowup(err,res)){ return }
     client.get("countbeans",function(err,reply){
       if(blowup(err,res)){ return }
-      res.redirect("/" + generate_url(reply) + "/edit")
+      var w = generate_url(reply)
+      if(req.session.fork_contents){
+        client.set("contents:" + w, req.session.fork_contents || " ", function(err, reply){
+          if(blowup(err,res)){ return }
+          delete req.session.fork_contents
+          req.session.save(function(){
+            res.redirect("/" + w + "/edit")
+          })
+        })
+      }else{
+        res.redirect("/" + w + "/edit")
+      }
     })
   })
 })
@@ -159,6 +170,13 @@ app.post('/:which/save', checkForPermissionMiddleware, function(req, res){
   var w = req.params.which
   client.set("contents:" + w, req.body.contents || " ", function(err, reply){
     if(blowup(err,res)){ return }
+    res.send("OK")
+  })
+})
+app.post('/:which/save-temp', function(req, res){
+  var w = req.params.which
+  req.session.fork_contents = req.body.contents
+  req.session.save(function(){
     res.send("OK")
   })
 })

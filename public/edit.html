@@ -169,6 +169,18 @@
           }
         }).always(function(){ $('#loading').hide() })
       })
+      $('#fork').click(function(){
+        $('#loading').show()
+        $.ajax({
+          url: '/' + key + '/save-temp',
+          type: 'POST',
+          data: {
+            contents: editor.getValue()
+          }
+        }).always(function(){
+          document.location.href = '/new'
+        })
+      })
       $('#full').attr('href', '/'+key)
     })
   </script>
