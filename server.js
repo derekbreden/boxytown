@@ -33,27 +33,35 @@ app.get('/', function(req, res, next){
 app.use(express["static"](__dirname + '/public'))
 
 
-var checkForPermission = function(req, res, next){
+var checkForPermission = function(req, next){
   var w = req.params.which
   client.get('session:'+w, function(err, session_reply){
-    if(blowup(err,res)){ return }
     client.get('password:'+w, function(err, password_reply){
-      if(blowup(err,res)){ return }
       if(
-        (session_reply && req.session.sessionId === session_reply)
+        (session_reply && req.sessionID === session_reply)
         ||
         (password_reply && req.session.password === password_reply)
         ||
         (!session_reply)
       ){
         if(!session_reply){
-          client.set("session:"+w,req.session.sessionId,function(){}) }
+          client.set("session:"+w,req.sessionID,function(){}) }
         next()
       }else{
-        res.send("NOT OK")
+        next(new Error("No permission"))
       }
     })
   })
+}
+var checkForPermissionMiddleware = function(req, res, next){
+  checkForPermission(req,function(err){
+    if(err){
+      res.send("NOT OK")
+    }else{
+      next()
+    }
+  })
+
 }
 
 
@@ -85,14 +93,14 @@ app.get('/:which', function(req, res){
   })
 })
 
-app.post('/:which/save', checkForPermission, function(req, res){
+app.post('/:which/save', checkForPermissionMiddleware, function(req, res){
   var w = req.params.which
   client.set("contents:" + w, req.body.contents || " ", function(err, reply){
     if(blowup(err,res)){ return }
     res.send("OK")
   })
 })
-app.post('/:which/save-domain', checkForPermission, function(req, res){
+app.post('/:which/save-domain', checkForPermissionMiddleware, function(req, res){
   var w = req.params.which
   client.set("domain:" + req.body.domain, w, function(err, reply){
     if(blowup(err,res)){ return }
