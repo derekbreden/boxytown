@@ -42,13 +42,22 @@ var checkForPermission = function(req, next){
         ||
         (password_reply && req.session.password === password_reply)
         ||
+        (req.body && req.body.password && password_reply && req.body.password === password_reply)
+        ||
         (!session_reply)
       ){
         if(!session_reply){
           client.set("session:"+w,req.sessionID,function(){}) }
+        if(req.body && req.body.password){
+          req.session.password = req.body.password
+        }
         next()
       }else{
-        next(new Error("No permission"))
+        if(password_reply){
+          next("not owner - password available")
+        }else{
+          next("not owner")
+        }
       }
     })
   })
@@ -82,6 +91,12 @@ app.get('/new', function(req, res){
   })
 })
 
+app.all('/:which/info', function(req, res){
+  checkForPermission(req, function(err){
+    res.send(err || "is owner")
+  })
+})
+
 app.get('/:which/edit', function(req, res){
   res.sendFile(__dirname + '/public/edit.html') })
 
@@ -103,6 +118,13 @@ app.post('/:which/save', checkForPermissionMiddleware, function(req, res){
 app.post('/:which/save-domain', checkForPermissionMiddleware, function(req, res){
   var w = req.params.which
   client.set("domain:" + req.body.domain, w, function(err, reply){
+    if(blowup(err,res)){ return }
+    res.send("OK")
+  })
+})
+app.post('/:which/save-pass', checkForPermissionMiddleware, function(req, res){
+  var w = req.params.which
+  client.set("password:" + w, req.body.password, function(err, reply){
     if(blowup(err,res)){ return }
     res.send("OK")
   })

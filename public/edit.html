@@ -28,6 +28,7 @@
       background: rgba(20,20,20,.8);
       z-index: 99999;
       display: none }
+    .hide{ display: none }
   </style>
 </head>
 <body>
@@ -36,13 +37,24 @@
       <div class="w50 pad-side-small">
         <div class="w50 h32">
           <span class="h32"></span>
-          <div class="button button-small gray-bg" id="pass">Set Pass</div>
-          <span class="h32 w8"></span>
-          <div class="button button-small gray-bg" id="domain">Set Domain</div>
+          <div class="hide unless-owner">
+            <div class="button button-small gray-bg" id="pass">Set Pass</div>
+            <span class="h32 w8"></span>
+            <div class="button button-small gray-bg" id="domain">Set Domain</div>
+          </div>
         </div>
         <div class="w50 h32 right">
           <span class="h32"></span>
-          <div class="button button-small green-bg" id="save">Save</div>
+          <div class="hide unless-owner">
+            <div class="button button-small green-bg" id="save">Save</div>
+          </div>
+          <div class="hide unless-locked">
+            <span class="hide unless-password-set">
+              <div class="button button-small gray-bg" id="unlock">Unlock</div>
+              <span class="h32 w8"></span>
+            </span>
+            <div class="button button-small green-bg" id="fork">Fork</div>
+          </div>
         </div>
       </div>
       <div class="w50 pad-side-small right h32">
@@ -71,17 +83,48 @@
       $('#iframe').attr('src','/' + key)
       $('#loading').show()
 
-      editor.on('change',function(){
-        $('#iframe').attr('src',
-          "data:text/html;charset=utf-8," + escape(editor.getValue()))
-      })
+      var evaluateIfOwner = function(data){
+        $('.unless-password-set,.unless-locked').hide()
+        if(data === "is owner"){
+          $('.unless-owner').show()
+        }else{
+          if (data === "not owner - password available"){
+            $('.unless-password-set').show()
+          }
+          $('.unless-locked').show()
+        }
+      }
+
       $.ajax({
         url: '/' + key
       }).done(function(data){
         editor.setValue(data, 1)
       }).fail(function(data){
         document.location.href='/'
-      }).always(function(){ $('#loading').hide() })
+      }).always(function(){
+        $.ajax({
+          url: '/' + key + '/info'
+        }).done(evaluateIfOwner).always(function(){
+          $('#loading').hide()
+        })
+        editor.on('change',function(){
+          $('#iframe').attr('src',
+            "data:text/html;charset=utf-8," + escape(editor.getValue()))
+        })
+      })
+
+      $('#unlock').click(function(){
+        var pass = prompt('Please enter the password for this page')
+        $('#loading').show()
+        $.ajax({
+          url: '/' + key + '/info',
+          type: 'POST',
+          data: {
+            password: pass
+          }
+        }).done(evaluateIfOwner)
+        .always(function(){ $('#loading').hide() })
+      })
       $('#save').click(function(){
         $('#loading').show()
         $.ajax({
@@ -100,7 +143,15 @@
         }
       })
       $('#pass').click(function(){
-        alert('not yet available')
+        var pass = prompt('Choose a password to access this page from another device')
+        $('#loading').show()
+        $.ajax({
+          url: '/' + key + '/save-pass',
+          type: 'POST',
+          data: {
+            password: pass
+          }
+        }).always(function(){ $('#loading').hide() })
       })
       $('#domain').click(function(){
         var dmn = prompt('Enter a domain (e.g. foo.com) to be associated with this page ...')
