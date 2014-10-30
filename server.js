@@ -15,6 +15,21 @@ app.use(compress())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
 
+app.use(fuction(req, res, next){
+  res.iframe = function(url){
+    res.send '\
+    <!doctype html>\
+    <style type="text/css">\
+      body{ margin: 0 }\
+      iframe{ position: absolute;\
+      top: 0; left: 0; right: 0; bottom: 0;\
+      border: 0; margin: 0; padding: 0;}\
+    </style>\
+    <iframe src="'+url+'"></iframe>\
+    ' }
+  next()
+})
+
 app.get('/', function(req, res, next){
   var h = req.host
   client.get('domain:'+h,function(err, domain_reply){
@@ -42,15 +57,16 @@ app.get('/', function(req, res, next){
   })
 })
 
+
 app.get('/admin', function(req, res){
   var h = req.host
   client.get('domain:'+h,function(err, domain_reply){
     if(blowup(err,res)){ return }
     if(domain_reply){
-      res.redirect('/'+domain_reply+'/edit')
+      res.iframe('/'+domain_reply+'/edit')
     }else{
       req.session.host_to_edit = req.host
-      res.redirect('/new')
+      res.iframe('/new')
     }
   })
 })
