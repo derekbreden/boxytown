@@ -15,9 +15,9 @@ app.use(compress())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
 
-app.use(fuction(req, res, next){
+app.use(function(req, res, next){
   res.iframe = function(url){
-    res.send '\
+    res.send('\
     <!doctype html>\
     <style type="text/css">\
       body{ margin: 0 }\
@@ -26,7 +26,8 @@ app.use(fuction(req, res, next){
       border: 0; margin: 0; padding: 0;}\
     </style>\
     <iframe src="'+url+'"></iframe>\
-    ' }
+    ')
+  }
   next()
 })
 
