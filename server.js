@@ -42,6 +42,19 @@ app.get('/', function(req, res, next){
   })
 })
 
+app.get('/admin', function(req, res){
+  var h = req.host
+  client.get('domain:'+h,function(err, domain_reply){
+    if(blowup(err,res)){ return }
+    if(domain_reply){
+      res.redirect('/'+domain_reply+'/edit')
+    }else{
+      req.session.host_to_edit = req.host
+      res.redirect('/new')
+    }
+  })
+})
+
 app.use(express["static"](__dirname + '/public'))
 
 
