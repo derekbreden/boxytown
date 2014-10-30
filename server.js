@@ -28,7 +28,16 @@ app.get('/', function(req, res, next){
         }
       })
     }else{
-      next()
+      if(
+        h === 'localhost'
+        ||
+        h.match(/htmelf.com/)
+      ){
+        next()
+      }else{
+        req.session.host_to_edit = h
+        res.redirect('/new')
+      }
     }
   })
 })
@@ -50,7 +59,12 @@ var checkForPermission = function(req, next){
         (!session_reply)
       ){
         if(!session_reply){
-          client.set("session:"+w,req.sessionID,function(){}) }
+          client.set("session:"+w,req.sessionID,function(){})
+          if(req.session.host_to_edit){
+            client.set("domain:" + req.session.host_to_edit, w, function(){})
+            req.session.host_to_edit = false
+          }
+        }
         if(req.body && req.body.password){
           req.session.password = req.body.password
         }
