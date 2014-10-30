@@ -17,4 +17,14 @@
       <a href="/new" class="button green-bg">new page ></a>
     </div>
   </div>
+  <script src="/jquery/dist/jquery.js"></script>
+  <script>
+    $(function(){
+      $.ajax({
+        url: '/home/recents'
+      }).done(function(data){
+        console.warn("GOT DATA!", data)
+      })
+    })
+  </script>
 </body>

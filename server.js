@@ -23,6 +23,9 @@ app.get('/', function(req, res, next){
       client.get('contents:'+reply,function(err, reply){
         if(blowup(err, res)){ return }
         res.send(reply || "")
+        if(reply){
+          client.zincrby('views', 1, w, function(){})
+        }
       })
     }else{
       next()
@@ -105,6 +108,9 @@ app.get('/:which', function(req, res){
   client.get('contents:'+w,function(err, reply){
     if(blowup(err,res)){ return }
     res.send(reply || "")
+    if(reply){
+      client.zincrby('views', 1, w, function(){})
+    }
   })
 })
 
@@ -128,6 +134,14 @@ app.post('/:which/save-pass', checkForPermissionMiddleware, function(req, res){
     if(blowup(err,res)){ return }
     res.send("OK")
   })
+})
+app.get('/home/recents', function(req, res){
+  client.zrevrangebyscore("views", "+inf", "-inf", "limit", "0", "10",
+    function(err, reply){
+      if(blowup(err,res)){ return }
+      console.warn("GOT!!", reply)
+      res.send(reply)
+    })
 })
 
 
