@@ -31,7 +31,7 @@ app.use(function(req, res, next){
   next()
 })
 
-app.get('/', function(req, res, next){
+var bestMiddleware = function(req, res, next){
   var h = req.host
 
   if(h.match(/(htmelf.com|localhost)/)){
@@ -53,7 +53,8 @@ app.get('/', function(req, res, next){
       }
     })
   }
-})
+}
+app.get('/', bestMiddleware)
 
 
 app.get('/admin', function(req, res){
@@ -203,6 +204,7 @@ app.get('/home/recents', function(req, res){
     })
 })
 
+app.get('*', bestMiddleware)
 
 
 var port = process.env.PORT || process.env.HTTP_PORT || 8000
