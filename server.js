@@ -12,8 +12,8 @@ app.use(session({
   secret: 'keyboard cat'
 }))
 app.use(compress())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.json({limit: '100mb'}))
+app.use(bodyParser.urlencoded({limit: '100mb'}))
 
 app.use(function(req, res, next){
   res.iframe = function(url){
